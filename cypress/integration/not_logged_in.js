@@ -12,5 +12,6 @@ describe('Not logged in actions', function () {
 
   it('Visits the main page', function () {
     cy.visit('http://localhost:5000')
+    cy.contains('Welcome to Phoenix!')
   })
 })
