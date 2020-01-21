@@ -1,4 +1,4 @@
-# Elixirvictoria
+# ElixirVictoria
 
 To start your Phoenix server:
 
