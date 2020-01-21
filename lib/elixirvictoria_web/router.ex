@@ -1,5 +1,5 @@
-defmodule ElixirvictoriaWeb.Router do
-  use ElixirvictoriaWeb, :router
+defmodule ElixirVictoriaWeb.Router do
+  use ElixirVictoriaWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,7 +13,7 @@ defmodule ElixirvictoriaWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ElixirvictoriaWeb do
+  scope "/", ElixirVictoriaWeb do
     pipe_through :browser
 
     get "/", PageController, :index

@@ -1,7 +1,7 @@
-defmodule ElixirvictoriaWeb.Endpoint do
+defmodule ElixirVictoriaWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :elixirvictoria
 
-  socket "/socket", ElixirvictoriaWeb.UserSocket,
+  socket "/socket", ElixirVictoriaWeb.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -42,5 +42,5 @@ defmodule ElixirvictoriaWeb.Endpoint do
     key: "_elixirvictoria_key",
     signing_salt: "Vrlyx7eq"
 
-  plug ElixirvictoriaWeb.Router
+  plug ElixirVictoriaWeb.Router
 end

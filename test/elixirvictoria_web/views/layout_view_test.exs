@@ -1,3 +1,3 @@
-defmodule ElixirvictoriaWeb.LayoutViewTest do
-  use ElixirvictoriaWeb.ConnCase, async: true
+defmodule ElixirVictoriaWeb.LayoutViewTest do
+  use ElixirVictoriaWeb.ConnCase, async: true
 end

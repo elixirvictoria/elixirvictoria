@@ -1,5 +1,5 @@
-defmodule ElixirvictoriaWeb.PageControllerTest do
-  use ElixirvictoriaWeb.ConnCase
+defmodule ElixirVictoriaWeb.PageControllerTest do
+  use ElixirVictoriaWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")

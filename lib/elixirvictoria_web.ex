@@ -1,4 +1,4 @@
-defmodule ElixirvictoriaWeb do
+defmodule ElixirVictoriaWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
@@ -19,11 +19,11 @@ defmodule ElixirvictoriaWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: ElixirvictoriaWeb
+      use Phoenix.Controller, namespace: ElixirVictoriaWeb
 
       import Plug.Conn
-      import ElixirvictoriaWeb.Gettext
-      alias ElixirvictoriaWeb.Router.Helpers, as: Routes
+      import ElixirVictoriaWeb.Gettext
+      alias ElixirVictoriaWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -39,9 +39,9 @@ defmodule ElixirvictoriaWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import ElixirvictoriaWeb.ErrorHelpers
-      import ElixirvictoriaWeb.Gettext
-      alias ElixirvictoriaWeb.Router.Helpers, as: Routes
+      import ElixirVictoriaWeb.ErrorHelpers
+      import ElixirVictoriaWeb.Gettext
+      alias ElixirVictoriaWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -56,7 +56,7 @@ defmodule ElixirvictoriaWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import ElixirvictoriaWeb.Gettext
+      import ElixirVictoriaWeb.Gettext
     end
   end
 
