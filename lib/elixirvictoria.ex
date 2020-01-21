@@ -1,4 +1,4 @@
-defmodule Elixirvictoria do
+defmodule ElixirVictoria do
   @moduledoc """
   Elixirvictoria keeps the contexts that define your domain
   and business logic.

@@ -1,3 +1,3 @@
-defmodule ElixirvictoriaWeb.LayoutView do
-  use ElixirvictoriaWeb, :view
+defmodule ElixirVictoriaWeb.LayoutView do
+  use ElixirVictoriaWeb, :view
 end

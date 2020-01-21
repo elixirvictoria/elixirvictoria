@@ -1,3 +1,3 @@
-defmodule ElixirvictoriaWeb.PageViewTest do
-  use ElixirvictoriaWeb.ConnCase, async: true
+defmodule ElixirVictoriaWeb.PageViewTest do
+  use ElixirVictoriaWeb.ConnCase, async: true
 end

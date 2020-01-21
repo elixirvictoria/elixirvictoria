@@ -8,14 +8,14 @@
 use Mix.Config
 
 config :elixirvictoria,
-  ecto_repos: [Elixirvictoria.Repo]
+  ecto_repos: [ElixirVictoria.Repo]
 
 # Configures the endpoint
-config :elixirvictoria, ElixirvictoriaWeb.Endpoint,
+config :elixirvictoria, ElixirVictoriaWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "GDT7gw7WrmFfyw5US4DDklvKP3EAT6p1sxp7q2mdxpymPap3+TD4y7xE7ar2Sw51",
-  render_errors: [view: ElixirvictoriaWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Elixirvictoria.PubSub, adapter: Phoenix.PubSub.PG2]
+  render_errors: [view: ElixirVictoriaWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: ElixirVictoria.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,

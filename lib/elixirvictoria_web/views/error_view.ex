@@ -1,5 +1,5 @@
-defmodule ElixirvictoriaWeb.ErrorView do
-  use ElixirvictoriaWeb, :view
+defmodule ElixirVictoriaWeb.ErrorView do
+  use ElixirVictoriaWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

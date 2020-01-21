@@ -1,3 +1,3 @@
-defmodule ElixirvictoriaWeb.PageView do
-  use ElixirvictoriaWeb, :view
+defmodule ElixirVictoriaWeb.PageView do
+  use ElixirVictoriaWeb, :view
 end
