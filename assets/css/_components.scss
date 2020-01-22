@@ -9,11 +9,15 @@
 h1, h2, h3 {
   @extend .mt-4;
   @extend .mb-3;
-  @extend .text-purple-dark;
+  @extend .text-primary;
   font-family: $title-font;
-  color: purple;
 }
 
 .logo-large {
   height: 30px;
+}
+
+.navbar-brand {
+  font-family: $title-font;
+  @extend .text-primary;
 }
