@@ -38,6 +38,7 @@ defmodule ElixirVictoriaWeb do
 
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
+      use ExEffectiveBootstrap.View
 
       import ElixirVictoriaWeb.ErrorHelpers
       import ElixirVictoriaWeb.Gettext
