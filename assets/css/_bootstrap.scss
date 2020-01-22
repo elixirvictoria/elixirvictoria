@@ -1,0 +1,30 @@
+$theme-colors: (
+  "primary": hsl(288, 43%, 37%),
+  "purple-dark": hsl(288, 36%, 33%),
+  "gray-100": #EBEBEB,
+  "gray-200": #4E5D6C,
+  "gray-300": #dee2e6,
+  "gray-400": #ced4da,
+  "gray-500": #adb5bd,
+  "gray-600": #868e96,
+  "gray-700": #495057,
+  "gray-800": #313a44,
+  "gray-900": #212529,
+  "white": #ebebeb,
+  "blue": #DF691A,
+  "indigo": #6610f2,
+  "purple": #6f42c1,
+  "pink": #e83e8c,
+  "red": #d9534f,
+  "orange": #f0ad4e,
+  "yellow": #f0ad4e,
+  "green": #5cb85c,
+  "info": #5cb85c,
+  "teal": #20c997,
+  "cyan": #ade2f1
+  );
+
+@import url('https://fonts.googleapis.com/css?family=Laila:600|Source+Sans+Pro&display=swap');
+
+$title-font: 'Laila', sans-serif;
+$font-family-base: 'Source Sans Pro', sans-serif;

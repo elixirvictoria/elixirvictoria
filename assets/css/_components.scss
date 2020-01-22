@@ -1,0 +1,19 @@
+.background {
+  background-image: url("/images/unsplash.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+h1, h2, h3 {
+  @extend .mt-4;
+  @extend .mb-3;
+  @extend .text-purple-dark;
+  font-family: $title-font;
+  color: purple;
+}
+
+.logo-large {
+  height: 30px;
+}
