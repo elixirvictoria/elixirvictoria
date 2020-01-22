@@ -36,3 +36,4 @@ npm-debug.log
 _build
 *.mp4
 .sobelow
+cypress/screenshots/*
