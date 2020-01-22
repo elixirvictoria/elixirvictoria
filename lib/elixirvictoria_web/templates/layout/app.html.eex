@@ -7,9 +7,12 @@
     <title>|> Elixir Victoria</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
-  <body  class="background">
-    <div class="container my-5 p-4 bg-white">
-      <%= render @view_module, @view_template, assigns %>
+  <body class="background">
+    <%= render "_navbar.html", conn: @conn %>
+    <div class="px-2">
+      <div class="container my-5 p-4 bg-white rounded">
+        <%= render @view_module, @view_template, assigns %>
+      </div>
     </div>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
