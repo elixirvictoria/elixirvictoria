@@ -1,20 +1,10 @@
-<h1> |> Elixir Victoria</h1>
+<h1>Welcome to Elixir Victoria</h1>
 
 <p>Supporting and growing the Elixir programming community in the Greater Victoria Area</p>
 
 <p>Find us on GitHub at <%= link "https://github.com/elixirvictoria", to: "https://github.com/elixirvictoria" %></p>
 
-<div class="row">
-    <div class="grid6">
-    <h2>Next Scheduled Meetup</h2>
-    <p>Wednesday February 5th @ 4pm - 6pm<br>
-    Tyee Housing Co-op Community Room<br>
-    Unit #1 - 103 Wilson St, Victoria</p>
-    <p><em>Please park on Wilson St or Tyee Rd not in the Co-op parking lot</em></p>
-    </div>
-    <div class="grid3 offset-1">
-        <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/map-tyee.jpg") %>">
-    </div>
-</div>
-
-
+<h2>|> Next Scheduled Meetup</h2>
+<p>
+    Wednesday February 5th @ 4pm - 6pm at the <%= link "Tyee Housing Co-op Community Room", to: Routes.page_path(@conn, :location) %>
+</p>

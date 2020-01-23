@@ -10,6 +10,7 @@
   <div class="collapse navbar-collapse" id="navContent">
     <ul class="navbar-nav mr-auto">
       <%= nav_link(@conn, "Home", to: Routes.page_path(@conn, :index)) %>
+      <%= nav_link(@conn, "Location", to: Routes.page_path(@conn, :location)) %>
     </ul>
   </div>
 </nav>
