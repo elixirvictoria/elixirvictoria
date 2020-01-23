@@ -11,7 +11,7 @@
 
     <p>
       <%= link to: "https://goo.gl/maps/SbTcgUigZSdj11t97", target: "_blank"  do %>
-        <%= icon("map-pin", class: "small-icon") %> Google maps link
+        <%= icon("map-pin", class: "small-icon") %> Google Maps
       <% end %>
     </p>
     <p>
