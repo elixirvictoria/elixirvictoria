@@ -10,7 +10,6 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 
-
 database_url =
   System.get_env("DATABASE_URL") ||
     raise """
@@ -45,6 +44,7 @@ full_web_host =
     environment variable WEB_HOST is missing.
     For example: WEB_HOST=https://something.com
     """
+
 config :elixirvictoria, ElixirVictoria.Repo,
   # ssl: true,
   url: database_url,
