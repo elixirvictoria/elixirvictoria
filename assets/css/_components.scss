@@ -25,3 +25,7 @@ h2 {
   font-family: $title-font;
   @extend .text-primary;
 }
+
+.small-icon {
+ height: 1rem !important;
+}

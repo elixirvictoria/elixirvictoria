@@ -4,8 +4,16 @@
 <div class="row">
   <div class="col-md-8">
     <h2>|> We meet in Victoria West </h2>
-    Tyee Housing Co-op Community Room<br>
-    Unit #1 - 103 Wilson St, Victoria</p>
+    <p>
+      Tyee Housing Co-op Community Room<br>
+      Unit #1 - 103 Wilson St, Victoria<br>
+    </p>
+
+    <p>
+      <%= link to: "https://goo.gl/maps/SbTcgUigZSdj11t97", target: "_blank"  do %>
+        <%= icon("map-pin", class: "small-icon") %> Google maps link
+      <% end %>
+    </p>
     <p>
       <em>
         Please park cars on Wilson St or Tyee Rd, not in the Co-op parking lot<br>
