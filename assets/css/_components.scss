@@ -13,6 +13,10 @@ h1, h2, h3 {
   font-family: $title-font;
 }
 
+h2 {
+  font-size: 1.4rem !important;
+}
+
 .logo-large {
   height: 30px;
 }
@@ -20,4 +24,8 @@ h1, h2, h3 {
 .navbar-brand {
   font-family: $title-font;
   @extend .text-primary;
+}
+
+.small-icon {
+ height: 1rem !important;
 }
