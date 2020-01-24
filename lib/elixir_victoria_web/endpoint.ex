@@ -1,5 +1,5 @@
 defmodule ElixirVictoriaWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :elixirvictoria
+  use Phoenix.Endpoint, otp_app: :elixir_victoria
 
   # socket "/socket", ElixirVictoriaWeb.UserSocket,
   #   websocket: true,
@@ -12,7 +12,7 @@ defmodule ElixirVictoriaWeb.Endpoint do
 
   plug Plug.Static,
     at: "/",
-    from: :elixirvictoria,
+    from: :elixir_victoria,
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 

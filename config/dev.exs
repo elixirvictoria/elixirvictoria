@@ -1,7 +1,7 @@
 use Mix.Config
 
 # Configure your database
-config :elixirvictoria, ElixirVictoria.Repo,
+config :elixir_victoria, ElixirVictoria.Repo,
   username: "postgres",
   password: "postgres",
   database: "elixirvictoria_dev",
@@ -15,7 +15,7 @@ config :elixirvictoria, ElixirVictoria.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :elixirvictoria, ElixirVictoriaWeb.Endpoint,
+config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -55,7 +55,7 @@ config :elixirvictoria, ElixirVictoriaWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :elixirvictoria, ElixirVictoriaWeb.Endpoint,
+config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",

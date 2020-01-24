@@ -20,7 +20,7 @@ defmodule ElixirVictoriaWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ElixirvictoriaWeb do
+  # scope "/api", ElixirVictoriaWeb do
   #   pipe_through :api
   # end
 end
