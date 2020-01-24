@@ -1,0 +1,14 @@
+{
+  "name": "Elixir Victoria",
+  "description": "Supporting and growing the Elixir programming community in the Greater Victoria Area.",
+  "keywords": [
+    "dokku",
+    "elixir",
+    "phoenix"
+  ],
+  "scripts": {
+    "dokku": {
+      "postdeploy": "mix ecto.migrate"
+    }
+  }
+}
