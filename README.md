@@ -10,7 +10,8 @@
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-The test suite can be run locally with `mix check`
+The test suite can be run locally with `mix check`  
+_You'll need at least 2 GB of RAM to run tests if using a cloud environment for dev_
 
 ## Contributing
 
