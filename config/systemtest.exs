@@ -1,7 +1,7 @@
 use Mix.Config
 
 # Configure your database
-config :elixirvictoria, ElixirVictoria.Repo,
+config :elixir_victoria, ElixirVictoria.Repo,
   username: "postgres",
   password: "postgres",
   database: "elixirvictoria_systemtest",
@@ -10,7 +10,7 @@ config :elixirvictoria, ElixirVictoria.Repo,
   pool_size: 10
 
 # We need to run a server during systemtest
-config :elixirvictoria, ElixirVictoriaWeb.Endpoint,
+config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
   http: [port: 5000],
   server: true
 

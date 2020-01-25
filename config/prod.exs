@@ -45,12 +45,12 @@ full_web_host =
     For example: WEB_HOST=https://something.com
     """
 
-config :elixirvictoria, ElixirVictoria.Repo,
+config :elixir_victoria, ElixirVictoria.Repo,
   # ssl: true,
   url: database_url,
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 
-config :elixirvictoria, ElixirVictoriaWeb.Endpoint,
+config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
   http: [:inet6, port: String.to_integer(port)],
   url: [host: web_host, path: "/", scheme: "https", port: 443],
   load_from_system_env: true,
@@ -67,7 +67,7 @@ config :logger, level: :info
 # To get SSL working, you will need to add the `https` key
 # to the previous section and set your `:url` port to 443:
 #
-#     config :elixirvictoria, ElixirVictoriaWeb.Endpoint,
+#     config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
 #       ...
 #       url: [host: "example.com", port: 443],
 #       https: [
@@ -91,7 +91,7 @@ config :logger, level: :info
 # We also recommend setting `force_ssl` in your endpoint, ensuring
 # no data is ever sent via http, always redirecting to https:
 #
-#     config :elixirvictoria, ElixirVictoriaWeb.Endpoint,
+#     config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
 #       force_ssl: [hsts: true]
 #
 # Check `Plug.SSL` for all available options in `force_ssl`.

@@ -7,11 +7,11 @@
 # General application configuration
 use Mix.Config
 
-config :elixirvictoria,
+config :elixir_victoria,
   ecto_repos: [ElixirVictoria.Repo]
 
 # Configures the endpoint
-config :elixirvictoria, ElixirVictoriaWeb.Endpoint,
+config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "GDT7gw7WrmFfyw5US4DDklvKP3EAT6p1sxp7q2mdxpymPap3+TD4y7xE7ar2Sw51",
   render_errors: [view: ElixirVictoriaWeb.ErrorView, accepts: ~w(html json)],

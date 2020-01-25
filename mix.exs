@@ -3,7 +3,7 @@ defmodule ElixirVictoria.MixProject do
 
   def project do
     [
-      app: :elixirvictoria,
+      app: :elixir_victoria,
       version: "0.1.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),
