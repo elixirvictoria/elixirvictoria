@@ -7,6 +7,6 @@ update_configs:
     - match: {dependency_type: "all", update_type: "all"}
   - package_manager: "javascript"
     directory: "/assets"
-    update_schedule: "live"
+    update_schedule: "weekly"
     automerged_updates:
-    - match: {dependency_type: "all", update_type: "all"}
+    - match: {dependency_type: "all", update_type: "semver:patch"}
