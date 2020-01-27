@@ -16,3 +16,5 @@ config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :elixir_victoria, ElixirVictoria.Email, adapter: Bamboo.TestAdapter

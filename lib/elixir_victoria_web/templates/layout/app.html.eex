@@ -9,6 +9,9 @@
   </head>
   <body class="background">
     <%= render "_navbar.html", conn: @conn %>
+    <div class="m-1">
+      <%= flash_alert(@conn) %>
+    </div>
     <div class="px-2">
       <div class="container my-5 p-4 bg-white rounded">
         <%= render @view_module, @view_template, assigns %>

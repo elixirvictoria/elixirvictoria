@@ -9,18 +9,12 @@ defmodule ElixirVictoriaWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
-
   scope "/", ElixirVictoriaWeb do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/contact", ContactController, only: [:new, :create]
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", ElixirVictoriaWeb do
-  #   pipe_through :api
-  # end
+  if Mix.env() == :dev, do: forward("/sent_emails", Bamboo.SentEmailViewerPlug)
 end

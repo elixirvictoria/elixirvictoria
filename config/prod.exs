@@ -45,6 +45,13 @@ full_web_host =
     For example: WEB_HOST=https://something.com
     """
 
+mailgun_api_key =
+  System.get_env("MAILGUN_API_KEY") ||
+    raise """
+    environment variable MAILGUN_API_KEY is missing.
+    For example: MAILGUN_API_KEY=xxxxxxxxxxxxxxxxxxxx
+    """
+
 config :elixir_victoria, ElixirVictoria.Repo,
   # ssl: true,
   url: database_url,
@@ -58,6 +65,11 @@ config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   secret_key_base: secret_key_base,
   check_origin: [full_web_host]
+
+config :elixir_victoria, ElixirVictoria.Email,
+  adapter: Bamboo.MailgunAdapter,
+  api_key: mailgun_api_key,
+  domain: "elixirvictoria.com"
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -95,7 +107,3 @@ config :logger, level: :info
 #       force_ssl: [hsts: true]
 #
 # Check `Plug.SSL` for all available options in `force_ssl`.
-
-# Finally import the config/prod.secret.exs which loads secrets
-# and configuration from environment variables.
-import_config "prod.secret.exs"
