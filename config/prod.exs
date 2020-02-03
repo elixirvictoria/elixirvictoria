@@ -69,7 +69,7 @@ config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
 config :elixir_victoria, ElixirVictoria.Email,
   adapter: Bamboo.MailgunAdapter,
   api_key: mailgun_api_key,
-  domain: "elixirvictoria.com"
+  domain: "mg.elixirvictoria.com"
 
 # Do not print debug messages in production
 config :logger, level: :info
