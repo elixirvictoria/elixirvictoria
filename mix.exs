@@ -27,7 +27,7 @@ defmodule ElixirVictoria.MixProject do
   def application do
     [
       mod: {ElixirVictoria.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :recaptcha]
     ]
   end
 
@@ -52,6 +52,7 @@ defmodule ElixirVictoria.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:ex_effective_bootstrap, "~> 0.1.15"},
       {:bamboo, "~> 1.4"},
+      {:recaptcha, "~> 3.0"},
       # Tooling
       {:ex_check, ">= 0.0.0", only: :dev, runtime: false},
       {:credo, "~> 1.2.0", only: [:dev, :test], runtime: false},
