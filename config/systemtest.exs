@@ -14,5 +14,6 @@ config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
   http: [port: 5000],
   server: true
 
+config :elixir_victoria, env: :systemtest
 # Print only warnings and errors during test
 config :logger, level: :warn

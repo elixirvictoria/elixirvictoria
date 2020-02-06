@@ -52,6 +52,20 @@ mailgun_api_key =
     For example: MAILGUN_API_KEY=xxxxxxxxxxxxxxxxxxxx
     """
 
+recaptcha_private_key =
+  System.get_env("RECAPTCHA_PRIVATE_KEY") ||
+    raise """
+    environment variable RECAPTCHA_PRIVATE_KEY is missing.
+    For example: RECAPTCHA_PRIVATE_KEY=xxxxxxxxxxxxxxxx
+    """
+
+recaptcha_public_key =
+  System.get_env("RECAPTCHA_PUBLIC_KEY") ||
+    raise """
+    environment variable RECAPTCHA_PUBLIC_KEY is missing.
+    For example: RECAPTCHA_PUBLIC_KEY=xxxxxxxxxxxxxxxxxx
+    """
+
 config :elixir_victoria, ElixirVictoria.Repo,
   # ssl: true,
   url: database_url,
@@ -70,6 +84,13 @@ config :elixir_victoria, ElixirVictoria.Email,
   adapter: Bamboo.MailgunAdapter,
   api_key: mailgun_api_key,
   domain: "mg.elixirvictoria.com"
+
+config :recaptcha,
+  public_key: recaptcha_public_key,
+  secret: recaptcha_private_key,
+  json_library: Jason
+
+config :elixir_victoria, env: :prod
 
 # Do not print debug messages in production
 config :logger, level: :info

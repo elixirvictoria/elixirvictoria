@@ -16,5 +16,7 @@ defmodule ElixirVictoriaWeb.Router do
     resources "/contact", ContactController, only: [:new, :create]
   end
 
-  if Mix.env() == :dev, do: forward("/sent_emails", Bamboo.SentEmailViewerPlug)
+  if Application.get_env(:elixir_victoria, :env) === :dev do
+    forward("/sent_emails", Bamboo.SentEmailViewerPlug)
+  end
 end
