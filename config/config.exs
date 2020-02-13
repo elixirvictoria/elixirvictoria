@@ -25,6 +25,14 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :elixir_victoria, :pow,
+  user: ElixirVictoria.Accounts.User,
+  repo: ElixirVictoria.Repo,
+  web_module: ElixirVictoriaWeb,
+  extensions: [PowPersistentSession],
+  cache_store_backend: Pow.Store.Backend.MnesiaCache,
+  messages_backend: ElixirVictoriaWeb.Pow.Messages
+
 config :elixir_victoria, ElixirVictoria.Email, adapter: Bamboo.LocalAdapter
 
 # Import environment specific config. This must remain at the bottom
