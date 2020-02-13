@@ -15,5 +15,4 @@ config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
   server: true
 
 config :elixir_victoria, env: :systemtest
-# Print only warnings and errors during test
 config :logger, level: :warn

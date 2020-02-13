@@ -42,14 +42,14 @@ full_web_host =
   System.get_env("FULL_WEB_HOST") ||
     raise """
     environment variable WEB_HOST is missing.
-    For example: WEB_HOST=https://something.com
+    For example: FULL_WEB_HOST=https://something.com
     """
 
-mailgun_api_key =
-  System.get_env("MAILGUN_API_KEY") ||
+sendgrid_api_key =
+  System.get_env("SENDGRID_API_KEY") ||
     raise """
-    environment variable MAILGUN_API_KEY is missing.
-    For example: MAILGUN_API_KEY=xxxxxxxxxxxxxxxxxxxx
+    environment variable SENDGRID_API_KEY is missing.
+    For example: SENDGRID_API_KEY=xxxxxxxxxxxxxxxxxxxx
     """
 
 recaptcha_private_key =
@@ -81,9 +81,11 @@ config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
   check_origin: [full_web_host]
 
 config :elixir_victoria, ElixirVictoria.Email,
-  adapter: Bamboo.MailgunAdapter,
-  api_key: mailgun_api_key,
-  domain: "elixirvictoria.com"
+  api_key: sendgrid_api_key,
+  adapter: Bamboo.SendGridAdapter,
+  hackney_opts: [
+    recv_timeout: :timer.minutes(1)
+  ]
 
 config :recaptcha,
   public_key: recaptcha_public_key,

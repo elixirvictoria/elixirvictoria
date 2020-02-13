@@ -17,6 +17,6 @@ defmodule ElixirVictoriaWeb.Router do
   end
 
   if Application.get_env(:elixir_victoria, :env) === :dev do
-    forward("/sent_emails", Bamboo.SentEmailViewerPlug)
+    forward("/sent_email", Bamboo.SentEmailViewerPlug)
   end
 end
