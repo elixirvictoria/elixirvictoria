@@ -15,6 +15,7 @@ defmodule ElixirVictoriaWeb.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
+  @spec connect(map, Phoenix.Socket.t(), any) :: {:ok, Phoenix.Socket.t()}
   def connect(_params, socket, _connect_info) do
     {:ok, socket}
   end
@@ -29,5 +30,6 @@ defmodule ElixirVictoriaWeb.UserSocket do
   #     ElixirVictoriaWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
+  @spec id(any) :: nil
   def id(_socket), do: nil
 end

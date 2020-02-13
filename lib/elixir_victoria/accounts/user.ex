@@ -20,6 +20,7 @@ defmodule ElixirVictoria.Accounts.User do
   end
 
   # Don't type @spec here or dialyzer will fail, there is a duplicate spec in PowExtentions
+  @impl true
   def changeset(user, attrs) do
     user
     |> pow_changeset(attrs)
