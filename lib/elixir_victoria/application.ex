@@ -11,7 +11,8 @@ defmodule ElixirVictoria.Application do
       # Start the Ecto repository
       ElixirVictoria.Repo,
       # Start the endpoint when the application starts
-      ElixirVictoriaWeb.Endpoint
+      ElixirVictoriaWeb.Endpoint,
+      Pow.Store.Backend.MnesiaCache
       # Starts a worker by calling: ElixirVictoria.Worker.start_link(arg)
       # {ElixirVictoria.Worker, arg},
     ]

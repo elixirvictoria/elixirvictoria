@@ -66,6 +66,13 @@ recaptcha_public_key =
     For example: RECAPTCHA_PUBLIC_KEY=xxxxxxxxxxxxxxxxxx
     """
 
+registration_code =
+  System.get_env("REGISTRATION_CODE") ||
+    raise """
+    environment variable REGISTRATION_CODE is missing.
+    For example: REGISTRATION_CODE=xxxxxxxxxxxxxxxxxx
+    """
+
 config :elixir_victoria, ElixirVictoria.Repo,
   # ssl: true,
   url: database_url,
@@ -92,7 +99,9 @@ config :recaptcha,
   secret: recaptcha_private_key,
   json_library: Jason
 
-config :elixir_victoria, env: :prod
+config :elixir_victoria,
+  env: :prod,
+  registration_code: registration_code
 
 # Do not print debug messages in production
 config :logger, level: :info

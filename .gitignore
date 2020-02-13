@@ -37,3 +37,5 @@ _build
 *.mp4
 .sobelow
 cypress/screenshots/*
+Mnesia.nonode@nohost
+MnesiaCore*

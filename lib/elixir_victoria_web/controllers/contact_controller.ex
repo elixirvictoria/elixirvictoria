@@ -35,10 +35,13 @@ defmodule ElixirVictoriaWeb.ContactController do
     end
   end
 
+  # coveralls-ignore-start
   defp verify(params) do
     case Application.get_env(:elixir_victoria, :env) do
       :prod -> Recaptcha.verify(params["g-recaptcha-response"])
       _ -> {:ok, "We only use Recaptcha in production"}
     end
   end
+
+  # coveralls-ignore-stop
 end
