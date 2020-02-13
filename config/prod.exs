@@ -42,7 +42,7 @@ full_web_host =
   System.get_env("FULL_WEB_HOST") ||
     raise """
     environment variable WEB_HOST is missing.
-    For example: WEB_HOST=https://something.com
+    For example: FULL_WEB_HOST=https://something.com
     """
 
 mailgun_api_key =
