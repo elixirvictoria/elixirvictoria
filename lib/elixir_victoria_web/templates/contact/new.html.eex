@@ -8,20 +8,9 @@
       <p>Oops, something went wrong! Please check the errors below</p>
     </div>
   <% end %>
-  <div class="row">
-    <div class="form-group col-lg-6">
-      <%= text_input f, :name, class: "form-control", placeholder: "Name" %>
-      <%= error_tag f, :name %>
-    </div>
-    <div class="form-group col-lg-6">
-      <%= email_input f, :from_email, class: "form-control", placeholder: "Email Address" %>
-      <%= error_tag f, :from_email %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= textarea f, :message, class: "form-control", placeholder: "Message", rows: 5 %>
-    <%= error_tag f, :message %>
-  </div>
+  <%= input f, :name, placeholder: "Name", label: false %>
+  <%= input f, :from_email, as: :email_input, placeholder: "Email address", label: false %>
+  <%= input f, :message, as: :textarea, placeholder: "Message", rows: 8, label: false %>
   <%= if production?() do %>
     <div class="mb-3">
       <%= raw Recaptcha.Template.display() %>
