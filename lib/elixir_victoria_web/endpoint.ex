@@ -43,5 +43,8 @@ defmodule ElixirVictoriaWeb.Endpoint do
     key: "_elixirvictoria_key",
     signing_salt: "Vrlyx7eq"
 
+  plug Pow.Plug.Session, otp_app: :elixir_victoria
+  plug PowPersistentSession.Plug.Cookie
+
   plug ElixirVictoriaWeb.Router
 end
