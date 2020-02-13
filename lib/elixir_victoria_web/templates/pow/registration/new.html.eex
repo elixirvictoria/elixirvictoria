@@ -7,7 +7,7 @@
     <div class="col-md-6 offset-md-3">
       <%= input f, :email, required: true %>
       <%= input f, :password, required: true %>
-      <%= input f, :confirm_password, required: true %>
+      <%= input f, :password_confirmation, required: true %>
       <%= input f, :registration_code, required: true %>
 
       <div class="text-center">
