@@ -3,6 +3,7 @@ defmodule ElixirVictoria.Group.Event do
   use Ecto.Schema
   import Ecto.Changeset
   alias ElixirVictoria.Accounts.User
+  alias ElixirVictoria.Validate
 
   @type t :: %__MODULE__{
           id: pos_integer | nil,
@@ -37,5 +38,7 @@ defmodule ElixirVictoria.Group.Event do
     |> cast(attrs, @available_attributes)
     |> put_change(:user_id, user.id)
     |> validate_required(@required_attributes)
+    |> Validate.time_format(:start)
+    |> Validate.time_format(:end)
   end
 end
