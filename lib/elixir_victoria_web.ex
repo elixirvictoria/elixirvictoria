@@ -1,4 +1,6 @@
 defmodule ElixirVictoriaWeb do
+  alias ElixirVictoriaWeb.FallbackController
+
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
@@ -21,8 +23,10 @@ defmodule ElixirVictoriaWeb do
     quote do
       use Phoenix.Controller, namespace: ElixirVictoriaWeb
 
+      action_fallback FallbackController
       import Plug.Conn
       import ElixirVictoriaWeb.Gettext
+      import ElixirVictoriaWeb.ControllerHelpers
       alias ElixirVictoriaWeb.Router.Helpers, as: Routes
     end
   end
