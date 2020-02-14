@@ -21,6 +21,18 @@ defmodule ElixirVictoria.Group do
     Repo.all(from e in Event, order_by: e.date)
   end
 
+  def upcoming_events do
+    today = Date.utc_today()
+    order_by = [asc: :date]
+    Repo.all(from e in Event, where: e.date >= ^today, order_by: ^order_by)
+  end
+
+  def past_events do
+    today = Date.utc_today()
+    order_by = [desc: :date]
+    Repo.all(from e in Event, where: e.date < ^today, order_by: ^order_by)
+  end
+
   @doc """
   Gets a single event.
 
