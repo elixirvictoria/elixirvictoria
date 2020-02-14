@@ -1,24 +1,28 @@
-<h1><%= @event.title %> <span class="text-muted"><%= @event.date %></span></h1>
+
+<h1 class="d-inline-block d-lg-flex justify-content-between pr-lg-4"><%= @event.title %> <br><span class="text-muted"><%= @event.date %></span></h1>
 
 <ul>
 
   <li>
-    <strong>Date:</strong>
-    <%= @event.date %>
+    <strong>Day:</strong>
+    <%= nice(@event.date) %>
   </li>
 
   <li>
-    <strong>Start:</strong>
+    <strong>Starts:</strong>
     <%= @event.start %>
   </li>
 
   <li>
-    <strong>End:</strong>
+    <strong>Ends:</strong>
     <%= @event.end %>
   </li>
 
 </ul>
+<%= if @event.content do %>
+<h2>|> On the Agenda</h2>
 <p><%= @event.content %></p>
+<% end %>
 
 <%= render ElixirVictoriaWeb.PageView, "_location.html", conn: @conn %>
 
