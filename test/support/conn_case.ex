@@ -23,6 +23,7 @@ defmodule ElixirVictoriaWeb.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
       alias ElixirVictoriaWeb.Router.Helpers, as: Routes
+      import ElixirVictoria.{Factory, Helpers}
 
       # The default endpoint for testing
       @endpoint ElixirVictoriaWeb.Endpoint
