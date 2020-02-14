@@ -3,6 +3,7 @@ defmodule ElixirVictoria.Accounts.User do
   use Ecto.Schema
   use Pow.Ecto.Schema
   import Ecto.Changeset
+  alias ElixirVictoria.Group.Event
 
   @type t :: %__MODULE__{
           id: pos_integer | nil,
@@ -10,11 +11,15 @@ defmodule ElixirVictoria.Accounts.User do
           updated_at: DateTime.t() | nil,
           # Pow user fields
           email: String.t() | nil,
-          password: String.t() | nil
+          password: String.t() | nil,
+          password_confirmation: String.t() | nil,
+          events: [Event.t()] | Ecto.Association.NotLoaded.t()
         }
 
   schema "users" do
     pow_user_fields()
+    field :password_confirmation, :string, virtual: true
+    has_many :events, Event
 
     timestamps()
   end
