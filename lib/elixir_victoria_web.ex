@@ -44,8 +44,7 @@ defmodule ElixirVictoriaWeb do
       use Phoenix.HTML
       use ExEffectiveBootstrap.View
 
-      import ElixirVictoriaWeb.ErrorHelpers
-      import ElixirVictoriaWeb.Gettext
+      import ElixirVictoriaWeb.{ErrorHelpers, Gettext, ViewHelpers}
       alias ElixirVictoriaWeb.Router.Helpers, as: Routes
     end
   end
