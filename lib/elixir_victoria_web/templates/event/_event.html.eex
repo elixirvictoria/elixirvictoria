@@ -1,0 +1,13 @@
+<h2><%= @event.title %> <span class="text-muted"><%= @event.date %></span></h2>
+<p><%= @event.start %> - <%= @event.end %></p>
+<p><%= @event.content %></p>
+
+<%= if permit?(@conn, :show, @event) do %>
+  <%= link "Show", to: Routes.event_path(@conn, :show, @event), class: "btn btn-sm btn-outline-primary mr-1" %>
+<% end %>
+<%= if permit?(@conn, :edit, @event) do %>
+  <%= link "Edit", to: Routes.event_path(@conn, :edit, @event), class: "btn btn-sm btn-outline-primary mr-1" %>
+<% end %>
+<%= if permit?(@conn, :delete, @event) do %>
+  <%= link "Delete", to: Routes.event_path(@conn, :delete, @event), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-sm btn-outline-primary mr-1" %>
+<% end %>

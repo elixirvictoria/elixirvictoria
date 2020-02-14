@@ -1,34 +1,11 @@
-<h1>Listing Events</h1>
+<h1>Events</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Start</th>
-      <th>End</th>
-      <th>Title</th>
-      <th>Content</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
 <%= for event <- @events do %>
-    <tr>
-      <td><%= event.date %></td>
-      <td><%= event.start %></td>
-      <td><%= event.end %></td>
-      <td><%= event.title %></td>
-      <td><%= event.content %></td>
-
-      <td>
-        <span><%= link "Show", to: Routes.event_path(@conn, :show, event) %></span>
-        <span><%= link "Edit", to: Routes.event_path(@conn, :edit, event) %></span>
-        <span><%= link "Delete", to: Routes.event_path(@conn, :delete, event), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
+  <%= render "_event.html", conn: @conn, event: event %>
 <% end %>
-  </tbody>
-</table>
 
-<span><%= link "New Event", to: Routes.event_path(@conn, :new) %></span>
+<%= if permit?(@conn, :new, %ElixirVictoria.Group.Event{}) do %>
+  <div class="mt-4">
+    <%= link "New Event", to: Routes.event_path(@conn, :new), class: "btn btn-sm btn-outline-primary" %>
+  </div>
+<% end %>
