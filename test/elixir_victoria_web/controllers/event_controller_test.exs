@@ -4,7 +4,7 @@ defmodule ElixirVictoriaWeb.EventControllerTest do
   describe "index" do
     test "lists all events when not logged in", %{conn: conn} do
       conn = get(conn, Routes.event_path(conn, :index))
-      assert html_response(conn, 200) =~ "Listing Events"
+      assert html_response(conn, 200) =~ "Events"
     end
   end
 
@@ -28,7 +28,7 @@ defmodule ElixirVictoriaWeb.EventControllerTest do
       assert redirected_to(conn) == Routes.event_path(conn, :show, id)
 
       conn = get(conn, Routes.event_path(conn, :show, id))
-      assert html_response(conn, 200) =~ "Show Event"
+      assert html_response(conn, 200) =~ event_params.title
     end
 
     test "renders errors when data is invalid and logged in", %{conn: conn} do
