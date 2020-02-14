@@ -1,66 +1,38 @@
 defmodule ElixirVictoria.Group do
-  @moduledoc """
-  The Group context.
-  """
+  @moduledoc "The Group context. Centered around organizing groups of people out in the real world"
 
   import Ecto.Query, warn: false
   alias ElixirVictoria.Repo
 
+  alias ElixirVictoria.Accounts.User
   alias ElixirVictoria.Group.Event
 
-  @doc """
-  Returns the list of events.
+  @type response_tuples :: {:ok, Event.t()} | {:error, Ecto.Changeset.t()}
+  @type denied :: {:error, :unauthorized}
 
-  ## Examples
-
-      iex> list_events()
-      [%Event{}, ...]
-
-  """
+  @spec list_events :: [Event.t()]
   def list_events do
     Repo.all(from e in Event, order_by: e.date)
   end
 
+  @spec upcoming_events :: [Event.t()]
   def upcoming_events do
     today = Date.utc_today()
     order_by = [asc: :date]
     Repo.all(from e in Event, where: e.date >= ^today, order_by: ^order_by)
   end
 
+  @spec past_events :: [Event.t()]
   def past_events do
     today = Date.utc_today()
     order_by = [desc: :date]
     Repo.all(from e in Event, where: e.date < ^today, order_by: ^order_by)
   end
 
-  @doc """
-  Gets a single event.
-
-  Raises `Ecto.NoResultsError` if the Event does not exist.
-
-  ## Examples
-
-      iex> get_event!(123)
-      %Event{}
-
-      iex> get_event!(456)
-      ** (Ecto.NoResultsError)
-
-  """
+  @spec get_event!(pos_integer) :: Event.t() | Ecto.NoResultsError
   def get_event!(id), do: Repo.get!(Event, id)
 
-  @doc """
-  Creates a event.
-
-  ## Examples
-
-      iex> create_event(%{field: value})
-      {:ok, %Event{}}
-
-      iex> create_event(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
+  @spec create_event(any, nil | ElixirVictoria.Accounts.User.t()) :: denied | response_tuples
   def create_event(_, nil) do
     {:error, :unauthorized}
   end
@@ -71,18 +43,7 @@ defmodule ElixirVictoria.Group do
     |> Repo.insert()
   end
 
-  @doc """
-  Updates a event.
-
-  ## Examples
-
-      iex> update_event(event, %{field: new_value})
-      {:ok, %Event{}}
-
-      iex> update_event(event, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
+  @spec update_event(any, any, nil | User.t()) :: response_tuples
   def update_event(_, _, nil) do
     {:error, :unauthorized}
   end
@@ -93,31 +54,13 @@ defmodule ElixirVictoria.Group do
     |> Repo.update()
   end
 
-  @doc """
-  Deletes a event.
-
-  ## Examples
-
-      iex> delete_event(event)
-      {:ok, %Event{}}
-
-      iex> delete_event(event)
-      {:error, %Ecto.Changeset{}}
-
-  """
+  @spec delete_event(Event.t()) :: {:ok, Event.t()}
   def delete_event(%Event{} = event) do
     Repo.delete(event)
   end
 
-  @doc """
-  Returns an `%Ecto.Changeset{}` for tracking event changes.
-
-  ## Examples
-
-      iex> change_event(event)
-      %Ecto.Changeset{source: %Event{}}
-
-  """
+  @spec change_event(any, nil | User.t()) ::
+          {:error, :unauthorized} | Ecto.Changeset.t()
   def change_event(_, nil) do
     {:error, :unauthorized}
   end
