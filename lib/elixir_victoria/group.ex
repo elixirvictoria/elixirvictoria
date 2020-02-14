@@ -29,6 +29,14 @@ defmodule ElixirVictoria.Group do
     Repo.all(from e in Event, where: e.date < ^today, order_by: ^order_by)
   end
 
+  @spec next_event :: Event.t() | nil
+  def next_event do
+    case upcoming_events() do
+      [] -> nil
+      events -> List.first(events)
+    end
+  end
+
   @spec get_event!(pos_integer) :: Event.t() | Ecto.NoResultsError
   def get_event!(id), do: Repo.get!(Event, id)
 

@@ -5,8 +5,10 @@
 <p>Find us on GitHub at <%= link "https://github.com/elixirvictoria", to: "https://github.com/elixirvictoria" %></p>
 
 <h2>|> Next Scheduled Meetup</h2>
-<p>
-    Wednesday February 5th @ 4pm - 6pm at the Tyee Housing Co-op Community Room
-</p>
-
+<%= if @next_event do %>
+    <%= render ElixirVictoriaWeb.EventView, "_event.html", event: @next_event, conn: @conn %>
+<% else %>
+    <p>Not yet announced, stay tuned!</p>
+<% end %>
 <%= render "_location.html", conn: @conn %>
+
