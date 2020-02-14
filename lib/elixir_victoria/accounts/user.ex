@@ -24,7 +24,7 @@ defmodule ElixirVictoria.Accounts.User do
     timestamps()
   end
 
-  # Don't type @spec here or dialyzer will fail, there is a duplicate spec in PowExtentions
+  # Don't type @spec here or dialyzer will fail, there is a duplicate spec in PowExtensions
   @impl true
   def changeset(user, attrs) do
     user
@@ -54,6 +54,16 @@ defmodule ElixirVictoria.Accounts.User do
   end
 
   # coveralls-ignore-start
+
+  @doc """
+  Any pow password works in development mode
+  spec already defined in pow
+  """
+  @impl true
+  def verify_password(user, password) do
+    development?() || pow_verify_password(user, password)
+  end
+
   defp registration_code do
     Application.get_env(:elixir_victoria, :registration_code)
   end
@@ -62,5 +72,9 @@ defmodule ElixirVictoria.Accounts.User do
 
   defp production? do
     Application.get_env(:elixir_victoria, :env) == :prod
+  end
+
+  defp development? do
+    Application.get_env(:elixir_victoria, :env) == :dev
   end
 end
