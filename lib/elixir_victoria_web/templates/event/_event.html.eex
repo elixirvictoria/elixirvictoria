@@ -1,15 +1,13 @@
-  <h2><%= @event.title %></h2>
+  <h3><%= link @event.title, to: Routes.event_path(@conn, :show, @event) %></h3>
   <p>
     <strong>Day:</strong> <%= nice(@event.date) %><br>
     <strong>Time:</strong> <%= @event.start %> - <%= @event.end %><br>
-    <strong>Place:</strong> Tyee Housing Co-op Community Room
+    <strong>Place:</strong> Tyee Housing Co-op Community Room, Unit #1 - 103 Wilson St, Victoria
 
   </p>
   <p><%= @event.content %></p>
 
-  <%= if permit?(@conn, :show, @event) do %>
-    <%= link "Show", to: Routes.event_path(@conn, :show, @event), class: "btn btn-sm btn-outline-primary mr-1" %>
-  <% end %>
+  <%= link "More", to: Routes.event_path(@conn, :show, @event), class: "btn btn-sm btn-outline-primary mr-1" %>
   <%= if permit?(@conn, :edit, @event) do %>
     <%= link "Edit", to: Routes.event_path(@conn, :edit, @event), class: "btn btn-sm btn-outline-primary mr-1" %>
   <% end %>
