@@ -1,8 +1,11 @@
-<h1>Welcome to Elixir Victoria</h1>
-
-<p>Supporting and growing the Elixir programming community in the Greater Victoria Area</p>
-
-<p>Find us on GitHub at <%= link "https://github.com/elixirvictoria", to: "https://github.com/elixirvictoria" %></p>
+<div class="d-flex justify-content-between">
+    <h1>Welcome to Elixir Victoria</h1>
+    <%= img_tag("/images/drop.png", class: "logo-large") %>
+</div>
+<div class="mb-5">
+    <p>Supporting and growing the Elixir programming community in the Greater Victoria Area<br>
+    Find us on GitHub at <%= link "https://github.com/elixirvictoria", to: "https://github.com/elixirvictoria" %></p>
+</div>
 
 <h2>|> Next Scheduled Meetup</h2>
 <%= if @next_event do %>

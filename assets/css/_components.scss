@@ -18,7 +18,8 @@ h2 {
 }
 
 .logo-large {
-  height: 30px;
+  @extend .mt-2;
+  height: 70px;
 }
 
 .navbar-brand {
