@@ -8,10 +8,11 @@
 </div>
 
 <h2>|> Next Scheduled Meetup</h2>
-<%= if @next_event do %>
-    <%= render ElixirVictoriaWeb.EventView, "_event.html", event: @next_event, conn: @conn %>
-<% else %>
-    <p>Not yet announced, stay tuned!</p>
-<% end %>
-<%= render "_location.html", conn: @conn %>
-
+<div class="mb-5 ml-4">
+    <%= if @next_event do %>
+        <%= render ElixirVictoriaWeb.EventView, "_event.html", event: @next_event, conn: @conn %>
+    <% else %>
+        <p>Not yet announced, stay tuned!</p>
+    <% end %>
+</div>
+<%= render ElixirVictoriaWeb.PageView, "_location.html", conn: @conn %>
