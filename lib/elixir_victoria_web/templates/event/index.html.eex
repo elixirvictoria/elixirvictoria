@@ -1,7 +1,24 @@
-<h1>Events</h1>
-
-<%= for event <- @events do %>
-  <%= render "_event.html", conn: @conn, event: event %>
+<%= tabs do %>
+  <%= tab "Upcoming Events" do %>
+    <h1>Upcoming Events</h1>
+    <%= if Enum.empty?(@upcoming_events) do %>
+      <p>No upcoming events announced yet, stay tuned!</p>
+    <% else %>
+      <%= for event <- @upcoming_events do %>
+        <%= render "_event.html", conn: @conn, event: event %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= tab "Past Events" do %>
+    <h1>Past Events</h1>
+    <%= if Enum.empty?(@past_events) do %>
+      No past events
+    <% else %>
+      <%= for event <- @past_events do %>
+        <%= render "_event.html", conn: @conn, event: event %>
+      <% end %>
+    <% end %>
+  <% end %>
 <% end %>
 
 <%= if permit?(@conn, :new, %ElixirVictoria.Group.Event{}) do %>

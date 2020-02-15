@@ -6,10 +6,11 @@ defmodule ElixirVictoriaWeb.EventController do
 
   @spec index(Plug.Conn.t(), any) :: Plug.Conn.t()
   def index(conn, _params) do
-    events = Group.list_events()
+    upcoming_events = Group.upcoming_events()
+    past_events = Group.past_events()
 
     with :ok <- check_auth(conn, :index, %Event{}) do
-      render(conn, "index.html", events: events)
+      render(conn, "index.html", upcoming_events: upcoming_events, past_events: past_events)
     end
   end
 
