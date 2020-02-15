@@ -13,12 +13,21 @@ h1, h2, h3 {
   font-family: $title-font;
 }
 
+h1 {
+  font-size: 2rem !important;
+}
+
 h2 {
   font-size: 1.4rem !important;
 }
 
+h3 {
+  font-size: 1.2rem !important;
+}
+
 .logo-large {
-  height: 30px;
+  @extend .mt-2;
+  height: 70px;
 }
 
 .navbar-brand {
