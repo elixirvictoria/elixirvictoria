@@ -1,0 +1,28 @@
+<h1><%= @event.title %> <span class="text-muted"><%= @event.date %></span></h1>
+
+<ul>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @event.date %>
+  </li>
+
+  <li>
+    <strong>Start:</strong>
+    <%= @event.start %>
+  </li>
+
+  <li>
+    <strong>End:</strong>
+    <%= @event.end %>
+  </li>
+
+</ul>
+<p><%= @event.content %></p>
+
+<%= render ElixirVictoriaWeb.PageView, "_location.html", conn: @conn %>
+
+<%= if permit?(@conn, :edit, @event) do %>
+  <%= link "Edit", to: Routes.event_path(@conn, :edit, @event), class: "btn btn-sm btn-outline-primary mr-1" %>
+<% end %>
+<%= link "Back", to: Routes.event_path(@conn, :index), class: "btn btn-sm btn-outline-secondary mr-1" %>

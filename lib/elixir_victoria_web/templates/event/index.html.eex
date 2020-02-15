@@ -1,0 +1,11 @@
+<h1>Events</h1>
+
+<%= for event <- @events do %>
+  <%= render "_event.html", conn: @conn, event: event %>
+<% end %>
+
+<%= if permit?(@conn, :new, %ElixirVictoria.Group.Event{}) do %>
+  <div class="mt-4">
+    <%= link "New Event", to: Routes.event_path(@conn, :new), class: "btn btn-sm btn-outline-primary" %>
+  </div>
+<% end %>

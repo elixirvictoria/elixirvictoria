@@ -22,4 +22,3 @@
       <%= img_tag Routes.static_path(@conn, "/images/map-tyee.jpg"), class: "ml-auto w-100 mt-4 rounded shadow" %>
     </div>
   </div>
-</div>

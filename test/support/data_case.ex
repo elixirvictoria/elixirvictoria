@@ -25,6 +25,7 @@ defmodule ElixirVictoria.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import ElixirVictoria.DataCase
+      import ElixirVictoria.{Factory, Helpers}
     end
   end
 
