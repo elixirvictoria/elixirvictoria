@@ -1,0 +1,20 @@
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1>Sign in</h1>
+    <%= effective_form_for @changeset, @action, [as: :user], fn f -> %>
+      <%= input f, :email %>
+      <%= input f, :password %>
+      <%= input f, :persistent_session, as: :checkbox, label: "Remember me", checked: true %>
+
+      <div class="text-center">
+        <%= effective_submit "Sign in", class: "btn btn-outline-primary" %>
+      </div>
+
+      <hr>
+      <p class="text-center">
+        <%= link "Sign up for an account", to: Routes.pow_registration_path(@conn, :new), class: "minor-link" %>
+      </p>
+    <% end %>
+  </div>
+</div>

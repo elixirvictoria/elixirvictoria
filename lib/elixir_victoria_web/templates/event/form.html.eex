@@ -1,0 +1,20 @@
+<%= effective_form_for @changeset, @action, fn f -> %>
+
+  <div class="row">
+  <div class="col-md-4">
+    <%= input f, :date %>
+  </div>
+  <div class="col-md-4">
+    <%= input f, :start, label: "Start Time", placeholder: "4:00PM" %>
+  </div>
+  <div class="col-md-4">
+    <%= input f, :end, label: "End Time", placeholder: "6:00PM" %>
+  </div>
+  </div>
+  <%= input f, :title %>
+  <%= input f, :content, as: :textarea, rows: 6 %>
+
+  <div>
+    <%= effective_submit("Save", class: "btn btn-outline-primary") %>
+  </div>
+<% end %>

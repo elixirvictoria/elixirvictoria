@@ -10,7 +10,17 @@
   <div class="collapse navbar-collapse" id="navContent">
     <ul class="navbar-nav mr-auto">
       <%= nav_link(@conn, "Home", to: Routes.page_path(@conn, :index)) %>
+      <%= nav_link(@conn, "Events", to: Routes.event_path(@conn, :index)) %>
       <%= nav_link(@conn, "Contact", to: Routes.contact_path(@conn, :new)) %>
+    </ul>
+    <ul class="navbar-nav">
+
+    <%= if @conn.assigns[:current_user] do %>
+      <%= nav_link(@conn, "Sign Out", to: Routes.pow_session_path(@conn, :delete), method: :delete, rel: :nofollow) %>
+    <% else %>
+      <%= nav_link(@conn, "Register", to: Routes.pow_registration_path(@conn, :new)) %>
+      <%= nav_link(@conn, "Sign in", to: Routes.pow_session_path(@conn, :new)) %>
+    <% end %>
     </ul>
   </div>
 </nav>

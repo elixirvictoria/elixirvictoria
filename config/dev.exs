@@ -60,8 +60,8 @@ config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/elixirvictoria_web/{live,views}/.*(ex)$",
-      ~r"lib/elixirvictoria_web/templates/.*(eex)$"
+      ~r"lib/elixir_victoria_web/{live,views}/.*(ex)$",
+      ~r"lib/elixir_victoria_web/templates/.*(eex)$"
     ]
   ]
 

@@ -1,12 +1,18 @@
-<h1>Welcome to Elixir Victoria</h1>
-
-<p>Supporting and growing the Elixir programming community in the Greater Victoria Area</p>
-
-<p>Find us on GitHub at <%= link "https://github.com/elixirvictoria", to: "https://github.com/elixirvictoria" %></p>
+<div class="d-flex justify-content-between">
+    <h1>Welcome to Elixir Victoria</h1>
+    <%= img_tag("/images/drop.png", class: "logo-large") %>
+</div>
+<div class="mb-5">
+    <p>Supporting and growing the Elixir programming community in the Greater Victoria Area<br>
+    Find us on GitHub at <%= link "https://github.com/elixirvictoria", to: "https://github.com/elixirvictoria" %></p>
+</div>
 
 <h2>|> Next Scheduled Meetup</h2>
-<p>
-    Wednesday February 5th @ 4pm - 6pm at the Tyee Housing Co-op Community Room
-</p>
-
-<%= render "_location.html", conn: @conn %>
+<div class="mb-5 ml-4">
+    <%= if @next_event do %>
+        <%= render ElixirVictoriaWeb.EventView, "_event.html", event: @next_event, conn: @conn %>
+    <% else %>
+        <p>Not yet announced, stay tuned!</p>
+    <% end %>
+</div>
+<%= render ElixirVictoriaWeb.PageView, "_location.html", conn: @conn %>

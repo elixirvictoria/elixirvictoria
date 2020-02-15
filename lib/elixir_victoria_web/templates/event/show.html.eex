@@ -1,0 +1,18 @@
+
+<h1 class="d-inline-block d-lg-flex justify-content-between pr-lg-4"><%= @event.title %> <br><span class="text-muted"><%= @event.date %></span></h1>
+<h2>|> Mark your calendar</h2>
+<p class="ml-4 mb-5">
+  <%= nice(@event.date) %><br>
+  <%= @event.start %> - <%= @event.end %>
+</p>
+<%= if @event.content do %>
+<h2>|> On the Agenda</h2>
+<p class="ml-4 mb-4"><%= @event.content %></p>
+<% end %>
+
+<%= render ElixirVictoriaWeb.PageView, "_location.html", conn: @conn %>
+
+<%= if permit?(@conn, :edit, @event) do %>
+  <%= link "Edit", to: Routes.event_path(@conn, :edit, @event), class: "btn btn-sm btn-outline-primary mr-1" %>
+<% end %>
+<%= link "Back", to: Routes.event_path(@conn, :index), class: "btn btn-sm btn-outline-secondary mr-1" %>

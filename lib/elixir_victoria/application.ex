@@ -5,13 +5,15 @@ defmodule ElixirVictoria.Application do
 
   use Application
 
+  @spec start(any, any) :: {:error, any} | {:ok, pid}
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
       ElixirVictoria.Repo,
       # Start the endpoint when the application starts
-      ElixirVictoriaWeb.Endpoint
+      ElixirVictoriaWeb.Endpoint,
+      Pow.Store.Backend.MnesiaCache
       # Starts a worker by calling: ElixirVictoria.Worker.start_link(arg)
       # {ElixirVictoria.Worker, arg},
     ]
@@ -24,6 +26,7 @@ defmodule ElixirVictoria.Application do
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
+  @spec config_change(any, any, any) :: :ok
   def config_change(changed, _new, removed) do
     ElixirVictoriaWeb.Endpoint.config_change(changed, removed)
     :ok

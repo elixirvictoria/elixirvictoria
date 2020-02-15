@@ -1,5 +1,6 @@
 defmodule ElixirVictoriaWeb.Router do
   use ElixirVictoriaWeb, :router
+  use Pow.Phoenix.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -9,10 +10,17 @@ defmodule ElixirVictoriaWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  scope "/" do
+    pipe_through :browser
+
+    pow_routes()
+  end
+
   scope "/", ElixirVictoriaWeb do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/events", EventController
     resources "/contact", ContactController, only: [:new, :create]
   end
 
