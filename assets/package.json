@@ -29,6 +29,6 @@
     "fibers": "^4.0.1",
     "webpack": "4.41.6",
     "webpack-cli": "^3.3.11",
-    "serialize-javascript": ">=2.1.1"
+    "serialize-javascript": ">=3.0.0"
   }
 }
