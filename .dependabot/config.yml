@@ -9,4 +9,8 @@ update_configs:
     directory: "/assets"
     update_schedule: "weekly"
     automerged_updates:
-    - match: {dependency_type: "all", update_type: "semver:patch"}
+    - match: {dependency_type: "all", update_type: "all"}
+    ignored_updates:
+    - match:
+        dependency_name: "css-loader"
+        version_requirement: "3.2.*"
