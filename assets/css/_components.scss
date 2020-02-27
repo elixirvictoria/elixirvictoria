@@ -13,6 +13,10 @@ h1, h2, h3 {
   font-family: $title-font;
 }
 
+iframe {
+  @extend .w-100
+}
+
 h1 {
   font-size: 2rem !important;
 }
