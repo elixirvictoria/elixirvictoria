@@ -1,0 +1,32 @@
+<h1>About Elixir Victoria <span class="text-muted">(and Elixir)</span></h1>
+
+<div class="row">
+  <div class="col-lg-6">
+    <h2>|> We love the Elixir programming language</h2>
+
+    <p>
+      <%= link "Elixir", to: "https://elixir-lang.org/" %> is a dynamic functional
+      programming language built on top of the venerable Erlang Virtual Machine
+      and is an awesome way to build low latency, distributed, and fault-tolerant
+      systems.
+    </p>
+    <p>
+      Elixir is experiencing success in many domains including web development
+      and embedded systems, and not just because of its performance - it is
+      also a joy to read and write!
+    </p>
+  </div>
+  <div class="col-lg-6">
+    <%= render "_video.html", url: "https://www.youtube.com/embed/lxYFOM3UJzo" %>
+  </div>
+</div>
+
+<h2>|> We want to share that passion</h2>
+<p>
+  Programming (despite popular stereotypes) is a social activity, many projects are
+  built by multiple people and the creating things is much more fun in numbers!
+</p>
+<p>
+  This group is friendly and informal and whether at the start of your journey or
+  farther down the road you are welcome to reach out or attend one of our events.
+</p>

@@ -20,6 +20,7 @@ defmodule ElixirVictoriaWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/about", PageController, :about
     resources "/events", EventController
     resources "/contact", ContactController, only: [:new, :create]
   end
