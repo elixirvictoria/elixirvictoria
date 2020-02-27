@@ -29,7 +29,7 @@ jobs:
           key: ${{ runner.os }}-build-dialyzer-${{ hashFiles('**/mix.lock') }}
           restore-keys: |
             ${{ runner.os }}-build-dialyzer-
-      # - run: cp config/dev.secret.exs.example config/dev.secret.exs
+      - run: cp config/dev.secret.exs.example config/dev.secret.exs
       - uses: actions/setup-elixir@v1.0.0
         with:
           otp-version: 22.1.8
