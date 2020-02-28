@@ -5,7 +5,7 @@ defmodule ElixirVictoria.Group do
   alias ElixirVictoria.Repo
 
   alias ElixirVictoria.Accounts.User
-  alias ElixirVictoria.Group.Event
+  alias ElixirVictoria.Group.{Event, ZuluTime}
 
   @type response_tuples :: {:ok, Event.t()} | {:error, Ecto.Changeset.t()}
   @type denied :: {:error, :unauthorized}
@@ -76,4 +76,9 @@ defmodule ElixirVictoria.Group do
   def change_event(%Event{} = event, user) do
     Event.changeset(event, %{}, user)
   end
+
+  @doc "returns a zulu time string from event information for use in Google requests etc"
+  @spec to_zulu_time(Event.t(), :start | :end) :: binary
+  def to_zulu_time(event, :start), do: ZuluTime.build(event.date, event.start)
+  def to_zulu_time(event, :end), do: ZuluTime.build(event.date, event.end)
 end

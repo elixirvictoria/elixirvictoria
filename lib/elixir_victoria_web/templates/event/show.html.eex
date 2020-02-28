@@ -1,10 +1,15 @@
 
 <h1 class="d-inline-block d-lg-flex justify-content-between pr-lg-4"><%= @event.title %> <br><span class="text-muted"><%= @event.date %></span></h1>
 <h2>|> Mark your calendar</h2>
-<p class="ml-4 mb-5">
-  <%= nice(@event.date) %><br>
-  <%= @event.start %> - <%= @event.end %>
-</p>
+  <p>
+    <%= nice(@event.date) %>
+  </p>
+  <p>
+    <%= @event.start %> - <%= @event.end %>
+  </p>
+  <p class="pb-4">
+    <%= add_to_google_calendar(@event) %>
+  </p>
 <%= if @event.content do %>
 <h2>|> On the Agenda</h2>
 <p class="ml-4 mb-4"><%= @event.content %></p>

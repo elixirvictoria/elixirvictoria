@@ -8,6 +8,9 @@
   <p><%= @event.content %></p>
 
   <%= link "More", to: Routes.event_path(@conn, :show, @event), class: "btn btn-sm btn-outline-primary mr-1" %>
+  <%= if upcoming? @event do %>
+    <%= add_to_google_calendar(@event) %>
+  <% end %>
   <%= if permit?(@conn, :edit, @event) do %>
     <%= link "Edit", to: Routes.event_path(@conn, :edit, @event), class: "btn btn-sm btn-outline-primary mr-1" %>
   <% end %>

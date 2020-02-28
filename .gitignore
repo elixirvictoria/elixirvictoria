@@ -38,3 +38,5 @@ _build
 .sobelow
 cypress/screenshots/*
 Mnesia*
+config/dev.secret.exs
+latest.dump

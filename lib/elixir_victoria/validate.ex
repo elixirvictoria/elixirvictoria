@@ -2,14 +2,14 @@ defmodule ElixirVictoria.Validate do
   @moduledoc "Changeset validations that would otherwise clutter up schemas"
   import Ecto.Changeset
 
+  @time_regex ~r/(?<hrs>\d{1,2}):(?<min>\d{2})(?<suf>\w{2})/
+
   @spec time_format(Ecto.Changeset.t(), atom) :: Ecto.Changeset.t()
   def time_format(changeset, field) do
-    regex = ~r/(?<hrs>\d{1,2}):(?<min>\d{2})(?<suf>\w{2})/
-
     with {_, time} <- fetch_field(changeset, field),
          :ok <- validate_not_nil(time),
-         true <- Regex.match?(regex, time),
-         %{"hrs" => hrs, "min" => min, "suf" => suf} <- Regex.named_captures(regex, time),
+         true <- Regex.match?(@time_regex, time),
+         %{"hrs" => hrs, "min" => min, "suf" => suf} <- Regex.named_captures(@time_regex, time),
          :ok <- validate_hours(hrs),
          :ok <- validate_minutes(min),
          :ok <- validate_suffix(suf) do
