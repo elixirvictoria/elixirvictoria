@@ -35,6 +35,7 @@ defmodule ElixirVictoriaWeb do
     quote do
       use Phoenix.View,
         root: "lib/elixir_victoria_web/templates",
+        pattern: "**/*",
         namespace: ElixirVictoriaWeb
 
       # Import convenience functions from controllers

@@ -3,6 +3,14 @@ defmodule ElixirVictoriaWeb.EventView do
   alias ElixirVictoria.Group
   alias ElixirVictoria.Group.Event
 
+  @spec locations_for_select :: map
+  defdelegate locations_for_select, to: Event, as: :locations
+
+  @spec location_values :: [String.t()]
+  def location_values do
+    Event.locations() |> Map.values()
+  end
+
   @spec nice(Date.t()) :: binary
   def nice(%Date{} = date) do
     weekday = get_weekday(date)

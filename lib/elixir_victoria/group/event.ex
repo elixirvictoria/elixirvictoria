@@ -23,13 +23,22 @@ defmodule ElixirVictoria.Group.Event do
     field :date, :date
     field :start, :string
     field :end, :string
+    field :location, :string
     belongs_to :user, User
 
     timestamps()
   end
 
-  @required_attributes [:date, :start, :end, :title, :content, :user_id]
-  @available_attributes [:date, :start, :end, :title, :content]
+  # key is the title, value is the template.
+  @locations %{
+    "Tyee Housing" => "tyee",
+    "Remote" => "remote"
+  }
+
+  def locations, do: @locations
+
+  @available_attributes [:date, :start, :end, :title, :content, :location]
+  @required_attributes @available_attributes ++ [:user_id]
 
   @doc false
   @spec changeset(t(), map, User.t()) :: Ecto.Changeset.t()
@@ -38,6 +47,7 @@ defmodule ElixirVictoria.Group.Event do
     |> cast(attrs, @available_attributes)
     |> put_change(:user_id, user.id)
     |> validate_required(@required_attributes)
+    |> validate_inclusion(:location, Map.values(@locations))
     |> Validate.time_format(:start)
     |> Validate.time_format(:end)
   end

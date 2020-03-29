@@ -12,6 +12,7 @@
   </div>
   </div>
   <%= input f, :title %>
+  <%= input f, :location, select: locations_for_select() %>
   <%= input f, :content, as: :textarea, rows: 6 %>
 
   <div>
