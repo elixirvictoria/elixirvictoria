@@ -2,7 +2,7 @@
   <div class="col-12">
     <h2>|> We are meeting remotely on Zoom</h2>
   </div>
-  <div class="col-8">
+  <div class="col-12 col-md-8 col-lg-10">
     <div class="ml-4">
       <p>
         Join Zoom Meeting:
@@ -17,7 +17,9 @@
       </p>
     </div>
   </div>
-    <div class="col-4">
-      <%= img_tag Routes.static_path(@conn, "/images/zoom.jpg"), class: "ml-auto w-100 mt-4" %>
+    <div class="col-12 col-md-4 col-lg-2">
+    <%= link to: "https://zoom.us/", target: "_blank" do %>
+      <%= img_tag Routes.static_path(@conn, "/images/zoom.jpg"), class: "w-100" %>
+    <% end %>
     </div>
   </div>
