@@ -40,17 +40,25 @@ defmodule ElixirVictoria.Group.Event do
     "remote" => %{
       title: "Zoom Meeting (Remote)",
       address: "Join Zoom Meeting: https://us04web.zoom.us/j/135902266",
-      address_html: ~e"Join Zoom Meeting: <%= link \"https://us04web.zoom.us/j/135902266\", to: \"https://us04web.zoom.us/j/135902266\" %>"
+      address_html:
+        ~e"Join Zoom Meeting: <%= link \"https://us04web.zoom.us/j/135902266\", to: \"https://us04web.zoom.us/j/135902266\" %>"
     }
   }
 
-  def locations_for_select, do: Enum.map(@locations, fn {k, v} -> {v.title, k} end)
+  @spec locations_for_select :: [{String.t(), String.t()}]
+  def locations_for_select do
+    Enum.map(@locations, fn {k, v} -> {v.title, k} end)
+  end
+
+  @spec location_values :: [String.t()]
   def location_values, do: Enum.map(@locations, fn {k, _v} -> k end)
 
+  @spec address_for_location(String.t()) :: String.t()
   def address_for_location(location) do
     get_in(@locations, [location, :address])
   end
 
+  @spec html_address_for_location(String.t()) :: {:ok, iolist} | String.t()
   def html_address_for_location(location) do
     get_in(@locations, [location, :address_html])
   end
@@ -65,7 +73,7 @@ defmodule ElixirVictoria.Group.Event do
     |> cast(attrs, @available_attributes)
     |> put_change(:user_id, user.id)
     |> validate_required(@required_attributes)
-    |> validate_inclusion(:location, Map.values(@locations))
+    |> validate_inclusion(:location, location_values())
     |> Validate.time_format(:start)
     |> Validate.time_format(:end)
   end

@@ -3,7 +3,7 @@ defmodule ElixirVictoriaWeb.EventView do
   alias ElixirVictoria.Group
   alias ElixirVictoria.Group.Event
 
-  @spec locations_for_select :: map
+  @spec locations_for_select :: [{String.t(), String.t()}]
   defdelegate locations_for_select, to: Event
 
   @spec location_values :: [String.t()]
