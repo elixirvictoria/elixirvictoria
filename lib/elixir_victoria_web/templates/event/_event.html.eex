@@ -2,7 +2,7 @@
   <p>
     <strong>Day:</strong> <%= nice(@event.date) %><br>
     <strong>Time:</strong> <%= @event.start %> - <%= @event.end %><br>
-    <strong>Place:</strong> Tyee Housing Co-op Community Room, Unit #1 - 103 Wilson St, Victoria
+    <strong>Place:</strong> <%= html_address_for_location(@event.location) %>
 
   </p>
   <p><%= @event.content %></p>

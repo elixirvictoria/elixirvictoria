@@ -2,6 +2,8 @@ defmodule ElixirVictoria.Group.Event do
   @moduledoc "A real live event such as a meetup or training session"
   use Ecto.Schema
   import Ecto.Changeset
+  import Phoenix.HTML
+  import Phoenix.HTML.Link
   alias ElixirVictoria.Accounts.User
   alias ElixirVictoria.Validate
 
@@ -29,13 +31,29 @@ defmodule ElixirVictoria.Group.Event do
     timestamps()
   end
 
-  # key is the title, value is the template.
   @locations %{
-    "Tyee Housing" => "tyee",
-    "Remote" => "remote"
+    "tyee" => %{
+      title: "Tyee Housing Co-op",
+      address: "Tyee Housing Co-op Community Room, Unit 1 - 103 Wilson St, Victoria",
+      address_html: "Tyee Housing Co-op Community Room, Unit 1 - 103 Wilson St, Victoria"
+    },
+    "remote" => %{
+      title: "Zoom Meeting (Remote)",
+      address: "Join Zoom Meeting: https://us04web.zoom.us/j/135902266",
+      address_html: ~e"Join Zoom Meeting: <%= link \"https://us04web.zoom.us/j/135902266\", to: \"https://us04web.zoom.us/j/135902266\" %>"
+    }
   }
 
-  def locations, do: @locations
+  def locations_for_select, do: Enum.map(@locations, fn {k, v} -> {v.title, k} end)
+  def location_values, do: Enum.map(@locations, fn {k, _v} -> k end)
+
+  def address_for_location(location) do
+    get_in(@locations, [location, :address])
+  end
+
+  def html_address_for_location(location) do
+    get_in(@locations, [location, :address_html])
+  end
 
   @available_attributes [:date, :start, :end, :title, :content, :location]
   @required_attributes @available_attributes ++ [:user_id]

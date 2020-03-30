@@ -4,12 +4,16 @@ defmodule ElixirVictoriaWeb.EventView do
   alias ElixirVictoria.Group.Event
 
   @spec locations_for_select :: map
-  defdelegate locations_for_select, to: Event, as: :locations
+  defdelegate locations_for_select, to: Event
 
   @spec location_values :: [String.t()]
-  def location_values do
-    Event.locations() |> Map.values()
-  end
+  defdelegate location_values, to: Event
+
+  @spec address_for_location(String.t()) :: String.t()
+  defdelegate address_for_location(location), to: Event
+
+  @spec html_address_for_location(String.t()) :: {:ok, iolist} | String.t()
+  defdelegate html_address_for_location(location), to: Event
 
   @spec nice(Date.t()) :: binary
   def nice(%Date{} = date) do
@@ -54,13 +58,11 @@ defmodule ElixirVictoriaWeb.EventView do
     Enum.at(@months, num)
   end
 
-  @location "Tyee Housing Co-op Community Room, Unit 1 - 103 Wilson St, Victoria"
-
   @doc "Makes an `Add to Google Calendar` button"
   @spec add_to_google_calendar(Event.t()) :: {:safe, iolist}
   def add_to_google_calendar(event) do
     title = plusify("Elixir Victoria #{event.title}")
-    location = plusify(@location)
+    location = event.location |> Event.address_for_location() |> plusify()
     start_time = Group.to_zulu_time(event, :start)
     end_time = Group.to_zulu_time(event, :end)
 

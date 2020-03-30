@@ -1,18 +1,20 @@
 <%= effective_form_for @changeset, @action, fn f -> %>
 
+      <%= input f, :title %>
   <div class="row">
-  <div class="col-md-4">
-    <%= input f, :date %>
+    <div class="col-md-6">
+      <%= input f, :date %>
+    </div>
+    <div class="col-md-6">
+      <%= input f, :location, select: locations_for_select() %>
+    </div>
+    <div class="col-md-6">
+      <%= input f, :start, label: "Start Time", placeholder: "4:00PM" %>
+    </div>
+    <div class="col-md-6">
+      <%= input f, :end, label: "End Time", placeholder: "6:00PM" %>
+    </div>
   </div>
-  <div class="col-md-4">
-    <%= input f, :start, label: "Start Time", placeholder: "4:00PM" %>
-  </div>
-  <div class="col-md-4">
-    <%= input f, :end, label: "End Time", placeholder: "6:00PM" %>
-  </div>
-  </div>
-  <%= input f, :title %>
-  <%= input f, :location, select: locations_for_select() %>
   <%= input f, :content, as: :textarea, rows: 6 %>
 
   <div>
