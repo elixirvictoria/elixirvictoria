@@ -23,6 +23,7 @@ defmodule ElixirVictoria.Factory do
       date: Date.utc_today(),
       start: "5:00PM",
       end: "7:00PM",
+      location: "tyee",
       user: nil
     }
   end
