@@ -11,12 +11,12 @@
 <div class="mb-5 ml-4">
     <%= if @next_event do %>
         <%= render ElixirVictoriaWeb.EventView, "_event.html", event: @next_event, conn: @conn %>
-        <%= if @next_event.location in location_values() do %>
-            <%= render "locations/_#{@next_event.location}.html", conn: @conn %>
-        <% else %>
-            <% raise "Bad location for #{inspect @next_event}" %>
-        <% end %>
     <% else %>
         <p>Not yet announced, stay tuned!</p>
     <% end %>
 </div>
+<%= if @next_event.location in location_values() do %>
+    <%= render ElixirVictoriaWeb.EventView, "locations/_#{@next_event.location}.html", conn: @conn %>
+<% else %>
+    <% raise "Bad location for #{inspect @next_event}" %>
+<% end %>
