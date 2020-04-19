@@ -61,7 +61,7 @@ defmodule ElixirVictoria.MixProject do
       {:ex_machina, "~> 2.3"},
       # Tooling
       {:ex_check, ">= 0.0.0", only: :dev, runtime: false},
-      {:credo, "~> 1.3.0", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.4.0", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0.0-rc.6", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.8", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.10", only: :test, runtime: false},
