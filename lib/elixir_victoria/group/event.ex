@@ -2,8 +2,6 @@ defmodule ElixirVictoria.Group.Event do
   @moduledoc "A real live event such as a meetup or training session"
   use Ecto.Schema
   import Ecto.Changeset
-  import Phoenix.HTML
-  import Phoenix.HTML.Link
   alias ElixirVictoria.Accounts.User
   alias ElixirVictoria.Validate
 
@@ -19,6 +17,8 @@ defmodule ElixirVictoria.Group.Event do
           user: User.t() | Ecto.Association.NotLoaded.t() | nil
         }
 
+  @type zoom_detail :: :link | :meeting_id | :password | :find_local_number
+
   schema "events" do
     field :title, :string
     field :content, :string
@@ -31,6 +31,13 @@ defmodule ElixirVictoria.Group.Event do
     timestamps()
   end
 
+  @zoom_details %{
+    link: "https://us02web.zoom.us/j/83670559007?pwd=MGdMUEI5TGlMcG9yS2VwamRnbmNzdz09",
+    meeting_id: "836 7055 9007",
+    password: "55555",
+    find_local_number: "https://us02web.zoom.us/u/kcssfnU0A7"
+  }
+
   @locations %{
     "tyee" => %{
       title: "Tyee Housing Co-op",
@@ -39,11 +46,14 @@ defmodule ElixirVictoria.Group.Event do
     },
     "remote" => %{
       title: "Zoom Meeting (Remote)",
-      address: "Join Zoom Meeting: https://us04web.zoom.us/j/135902266",
-      address_html:
-        ~e"Join Zoom Meeting: <%= link \"https://us04web.zoom.us/j/135902266\", to: \"https://us04web.zoom.us/j/135902266\" %>"
+      address: "Join Zoom Meeting: " <> @zoom_details.link
     }
   }
+
+  @spec zoom_details(zoom_detail) :: String.t()
+  def zoom_details(key) do
+    Map.fetch!(@zoom_details, key)
+  end
 
   @spec locations_for_select :: [{String.t(), String.t()}]
   def locations_for_select do

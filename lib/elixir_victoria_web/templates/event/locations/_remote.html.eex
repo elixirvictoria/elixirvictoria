@@ -6,14 +6,15 @@
     <div class="ml-4">
       <p>
         Join Zoom Meeting:
-        <%= link "https://us04web.zoom.us/j/135902266", to: "https://us04web.zoom.us/j/135902266" %>
+        <%= link Event.zoom_details(:link), to: Event.zoom_details(:link) %>
       </p>
       <p>
-        Meeting ID: 135 902 266
+        Meeting ID: <%= Event.zoom_details(:meeting_id) %><br>
+        Password: <%= Event.zoom_details(:password) %>
       </p>
       <p>
         Find your local number:
-        <%= link "https://us04web.zoom.us/u/fehPmgyIop", to: "https://us04web.zoom.us/u/fehPmgyIop" %>
+        <%= link Event.zoom_details(:find_local_number), to: Event.zoom_details(:find_local_number) %>
       </p>
     </div>
   </div>

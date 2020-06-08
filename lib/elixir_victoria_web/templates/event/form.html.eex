@@ -1,6 +1,5 @@
 <%= effective_form_for @changeset, @action, fn f -> %>
-
-      <%= input f, :title %>
+  <%= input f, :title %>
   <div class="row">
     <div class="col-md-6">
       <%= input f, :date %>
@@ -9,10 +8,10 @@
       <%= input f, :location, select: locations_for_select() %>
     </div>
     <div class="col-md-6">
-      <%= input f, :start, label: "Start Time", placeholder: "4:00PM" %>
+      <%= input f, :start, label: "Start Time", placeholder: "3:00PM" %>
     </div>
     <div class="col-md-6">
-      <%= input f, :end, label: "End Time", placeholder: "6:00PM" %>
+      <%= input f, :end, label: "End Time", placeholder: "5:00PM" %>
     </div>
   </div>
   <%= input f, :content, as: :textarea, rows: 6 %>
