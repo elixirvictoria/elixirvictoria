@@ -16,6 +16,7 @@
     # {:my_mix_check, command: "mix release", env: %{"MIX_ENV" => "prod"}},
     # {:my_arbitrary_check, command: "npm test", cd: "assets"},
 
+    {:formatter, command: "mix format"},
     {:cypress, command: "mix cypress.run"},
     {:ex_coveralls,
      command: "mix coveralls.html",

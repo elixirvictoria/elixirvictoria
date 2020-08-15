@@ -15,7 +15,7 @@ config :elixir_victoria, ElixirVictoriaWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "GDT7gw7WrmFfyw5US4DDklvKP3EAT6p1sxp7q2mdxpymPap3+TD4y7xE7ar2Sw51",
   render_errors: [view: ElixirVictoriaWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: ElixirVictoria.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub_server: ElixirVictoria.PubSub
 
 # Configures Elixir's Logger
 config :logger, :console,

@@ -13,7 +13,8 @@ defmodule ElixirVictoria.Application do
       ElixirVictoria.Repo,
       # Start the endpoint when the application starts
       ElixirVictoriaWeb.Endpoint,
-      Pow.Store.Backend.MnesiaCache
+      Pow.Store.Backend.MnesiaCache,
+      {Phoenix.PubSub, [name: ElixirVictoria.PubSub, adapter: Phoenix.PubSub.PG2]}
       # Starts a worker by calling: ElixirVictoria.Worker.start_link(arg)
       # {ElixirVictoria.Worker, arg},
     ]
