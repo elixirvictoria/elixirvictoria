@@ -8,10 +8,10 @@
       <%= input f, :location, select: locations_for_select() %>
     </div>
     <div class="col-md-6">
-      <%= input f, :start, label: "Start Time", placeholder: "3:00PM" %>
+      <%= input f, :start, label: "Start Time", default: "3:00PM" %>
     </div>
     <div class="col-md-6">
-      <%= input f, :end, label: "End Time", placeholder: "5:00PM" %>
+      <%= input f, :end, label: "End Time", default: "5:00PM" %>
     </div>
   </div>
   <%= input f, :content, as: :textarea, rows: 6 %>
