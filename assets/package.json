@@ -28,7 +28,7 @@
     "node-sass": "^4.14.1",
     "sass": "^1.26.10",
     "sass-loader": "^10.0.2",
-    "serialize-javascript": ">=4.0.0",
+    "serialize-javascript": ">=5.0.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   }
