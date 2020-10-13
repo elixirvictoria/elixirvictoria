@@ -1,0 +1,25 @@
+name: Deploy
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - id: deploy
+      name: Deploy to dokku
+      if: github.event.pull_request.merged
+      uses: idoberko2/dokku-deploy-github-action@v1
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        dokku-host: ${{ secrets.DOKKU_HOST }}
+        app-name: 'elixirvictoria'
+        git-push-flags: '--force'
