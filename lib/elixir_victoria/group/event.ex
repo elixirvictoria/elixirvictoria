@@ -32,8 +32,8 @@ defmodule ElixirVictoria.Group.Event do
   end
 
   @zoom_details %{
-    link: "https://us02web.zoom.us/j/85812148217?pwd=UkhYd2xSSFpyMTNXcHlSak1aTVRxdz09",
-    meeting_id: "858 1214 8217",
+    link: "https://us02web.zoom.us/j/82210759548?pwd=eCtybjNja3dkSmJEdVhQU25ERTc3Zz09",
+    meeting_id: "822 1075 9548",
     password: "55555",
     find_local_number: "https://us02web.zoom.us/u/kcLVowqzbo"
   }
